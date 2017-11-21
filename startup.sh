@@ -1,0 +1,14 @@
+#!/bin/sh
+make
+#baemon
+while true
+do
+ps -ef | grep "libeventThread" | grep -v "grep"
+if [ "$?" -eq 0 ]; then
+	echo "watch process already started!" 
+else
+	./libeventThread 
+	echo "watch process has been restarted!" 
+fi 
+sleep 1 
+done
